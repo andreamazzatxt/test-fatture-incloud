@@ -1,35 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
+.wrapper {
+  position: relative;
+  cursor: pointer;
+}
 .tile {
   width: 80px;
   height: 110px;
   border-right: solid 1px #ebedee;
+  border-top: solid 1px #ebedee;
+  border-bottom: solid 1px #ebedee;
+  display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  user-select: none;
 }
 
 .tileHeader {
+  width: 80px;
   height: 31px;
   border-bottom: solid 1px #ebedee;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-.title {
-  color: #3898d2;
-  font-weight: 500;
-  margin-left: 8px;
-  display: flex;
-}
 
 .tileFooter {
+  width: 80px;
   height: 43px;
-  background-color: yellow;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
 }
+
+.title {
+  color: #0d97d5;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
 p {
   font-size: 12px;
   font-family: "Inter", sans-serif;
@@ -40,9 +51,23 @@ p {
 }
 
 .total {
-  color: #398159;
+  color: #00875a;
   font-weight: 500;
 }
 
 .selector {
+  height: 3px;
+  width: 80px;
+  margin-top: auto;
+  transition-duration: 500ms;
+}
+
+.greenBackground {
+  width: 80px;
+  height: 0px;
+  background: #e0f1eb;
+  position: absolute;
+  bottom: 0px;
+  z-index: -1;
+  transition: 500ms ease-out;
 }

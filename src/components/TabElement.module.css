@@ -1,0 +1,5 @@
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  border-left: solid 1px #ebedee;
+}
