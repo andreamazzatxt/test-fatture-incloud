@@ -15,6 +15,10 @@ const separateNum = (num) => {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 };
 
+const calcGreenPx = (amount, biggerAmount) => {
+  const height = biggerAmount ? parseInt((amount * 75) / biggerAmount) : 0;
+  return height;
+};
 const MESI = [
   "Gennaio",
   "Febbraio",
@@ -30,4 +34,4 @@ const MESI = [
   "Dicembre",
 ];
 
-export { getData, separateNum, findBigger, MESI };
+export { getData, separateNum, findBigger, calcGreenPx, MESI };

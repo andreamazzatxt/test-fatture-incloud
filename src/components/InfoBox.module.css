@@ -1,0 +1,22 @@
+.info {
+  height: 200px;
+  width: 100%;
+}
+.box {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.total {
+  color: #00875a;
+  font-weight: 500;
+  padding-top: 3px;
+}
+
+.totalContainer {
+  height: 100px;
+  width: 100%;
+}

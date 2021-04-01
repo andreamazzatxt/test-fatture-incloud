@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import { findBigger, getData, MESI } from "../helpers/helpers";
+import { findBigger, getData, calcGreenPx, MESI } from "../helpers/helpers";
 import MonthElement from "./MonthElement";
 import style from "./TabElement.module.css";
 
-const calcGreenPx = (amount, biggerAmount) => {
-  const height = biggerAmount ? parseInt((amount * 75) / biggerAmount) : 0;
-  return height;
-};
+const light = "#C6E7F5";
+const blue = "#0D97D5";
 
-export default function TabElement() {
+export default function TabElement({ setSelected }) {
   const [months, setMonth] = useState([]);
   const [biggerAmount, setBiggerAmount] = useState(0);
   const [selectedArray, setSelectedArray] = useState(new Array(12).fill(false));
@@ -22,12 +20,23 @@ export default function TabElement() {
   }
   function handleMouseUp(index) {
     setMouseDown(false);
+    const selectedMonths = months
+      .map((month, index) => {
+        if (selectedArray[index]) {
+          month.name = MESI[index];
+          return month;
+        } else {
+          return false;
+        }
+      })
+      .filter((element) => element);
+    setSelected(selectedMonths);
   }
 
   function handleHover(index) {
     if (mouseDown) {
       let array = selectedArray.slice();
-      array[index] = !array[index];
+      array[index] = true;
       setSelectedArray(array);
     }
   }
@@ -56,7 +65,8 @@ export default function TabElement() {
               month={month}
               name={MESI[index]}
               greenSize={calcGreenPx(month.importo, biggerAmount)}
-              selectorColor={selectedArray[index]}
+              selectorCondition={selectedArray[index]}
+              selectorColor={mouseDown ? light : blue}
             />
           </div>
         );

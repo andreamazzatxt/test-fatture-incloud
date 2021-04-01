@@ -1,19 +1,13 @@
-import { useState } from "react";
 import { separateNum } from "../helpers/helpers";
 import style from "./MonthElement.module.css";
-const blue = "#0D97D5";
-const green = "#00875A";
+
 export default function MonthElement({
   month,
   name,
   greenSize,
+  selectorCondition,
   selectorColor,
-  onClick,
 }) {
-  const handleColor = () => {
-    return selectorColor ? green : blue;
-  };
-
   return (
     <div className={style.wrapper}>
       <div className={style.tile}>
@@ -26,9 +20,12 @@ export default function MonthElement({
           <div
             className={style.selector}
             style={{
-              backgroundColor: handleColor(),
+              backgroundColor: selectorColor,
+              opacity: selectorCondition ? 1 : 0,
             }}
-          ></div>
+          >
+            <div className={style.selectorShadow}></div>
+          </div>
         </div>
       </div>
       <div
