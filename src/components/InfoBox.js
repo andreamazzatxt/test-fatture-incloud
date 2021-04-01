@@ -16,7 +16,7 @@ export default function InfoBox({ selectedMonths }) {
     setTotalDocumenti(newDocumenti);
   }, [selectedMonths]);
   return (
-    <div className={+style.info}>
+    <div className={style.info}>
       <div className={style.box}>
         {selectedMonths.map((month) => {
           return (

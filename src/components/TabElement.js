@@ -12,12 +12,15 @@ export default function TabElement({ setSelected }) {
   const [selectedArray, setSelectedArray] = useState(new Array(12).fill(false));
   const [mouseDown, setMouseDown] = useState(false);
 
+  // HANDLE DRAG TO SELECT
+  // On Mouse Down the element become selected (true state)
   function handleMouseDown(index) {
     setMouseDown(true);
     let array = new Array(12).fill(false);
     array[index] = true;
     setSelectedArray(array);
   }
+  // On Mouse Up check on selectedArray to set an array of selected Months
   function handleMouseUp(index) {
     setMouseDown(false);
     const selectedMonths = months
@@ -32,7 +35,8 @@ export default function TabElement({ setSelected }) {
       .filter((element) => element);
     setSelected(selectedMonths);
   }
-
+  // When hover on a MonthElement it checks if the mouse is still "Down"
+  // If it is down it will select the current MonthElement
   function handleHover(index) {
     if (mouseDown) {
       let array = selectedArray.slice();
@@ -40,6 +44,7 @@ export default function TabElement({ setSelected }) {
       setSelectedArray(array);
     }
   }
+
   // Fetch API endpoint on page load
   // Set Data to render the page
   useEffect(() => {

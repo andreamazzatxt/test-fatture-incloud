@@ -76,5 +76,5 @@ p {
   position: absolute;
   bottom: 0px;
   z-index: -1;
-  transition: 500ms ease-out;
+  transition-duration: 500ms;
 }

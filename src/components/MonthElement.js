@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { separateNum } from "../helpers/helpers";
 import style from "./MonthElement.module.css";
 
@@ -8,6 +9,13 @@ export default function MonthElement({
   selectorCondition,
   selectorColor,
 }) {
+  const [height, setHeight] = useState(10);
+  // handle delay on set new height for animation
+  useEffect(() => {
+    setTimeout(() => {
+      setHeight(greenSize);
+    }, 300);
+  }, [greenSize]);
   return (
     <div className={style.wrapper}>
       <div className={style.tile}>
@@ -28,10 +36,7 @@ export default function MonthElement({
           </div>
         </div>
       </div>
-      <div
-        className={style.greenBackground}
-        style={{ height: greenSize }}
-      ></div>
+      <div className={style.greenBackground} style={{ height: height }}></div>
     </div>
   );
 }
